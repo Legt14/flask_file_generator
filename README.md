@@ -10,7 +10,7 @@
 
 ## Run script
 * $ ~  `make_app`
-    * name of projects
+    * name of project
  
 
 
