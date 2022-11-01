@@ -1,0 +1,67 @@
+#! /usr/bin/env python3
+
+from os import makedirs, path, mkdir
+
+class CreateApp:
+    def __init__(self):
+        self.project_name = input('\033[1;32;40mProject name: ')
+        self.main_path = '{}'.format(self.project_name)
+        self.app_path = '{}/app/'.format(self.main_path)
+        self.template_path = '{}template/'.format(self.app_path)
+        self.static_path = '{}static/'.format(self.app_path)
+        
+
+    def create_main_dir(self):
+        makedirs(
+            '{}/app/'.format(self.project_name))
+        return 'Project name: {} is create'.format(self.project_name)
+
+
+    def file_creator(self):
+        file_main = open('{}/main.py'.format(self.project_name), 'x')
+        file_main.close()
+
+        file_forms = open('{}/forms.py'.format(self.app_path), 'x')
+        file_forms.close()
+
+        file_models = open('{}/models.py'.format(self.app_path), 'x')
+        file_models.close()
+
+        file_models = open('{}index.html'.format(self.template_path), 'x')
+        file_models.close()
+
+        return 'Main file is created'
+
+
+    def app_dirs(self):
+        mkdir(path.join(self.app_path, 'template'))
+        mkdir(path.join(self.app_path, 'static'))
+        mkdir(path.join(self.app_path, 'auth'))
+        
+        return 'directory is create'
+
+
+    def static_dirs(self):
+        mkdir(path.join(self.static_path, 'css'))
+        mkdir(path.join(self.static_path, 'img'))
+        mkdir(path.join(self.static_path, 'js'))
+
+
+    def create(self):
+        try:
+            self.create_main_dir()
+            self.app_dirs()
+            self.static_dirs()
+            self.file_creator()
+            
+            return '\033[1;32;40mThe project: {} was created successfully'.format(self.project_name)
+        
+        except Exception as e:
+            return '\033[1;31;40m{}\nProject name is not valid or already exist'.format(e)
+
+app = CreateApp()
+print(app.create())
+
+# if __name__ == '__main__':
+#     app = CreateApp()
+#     print(app.create())
