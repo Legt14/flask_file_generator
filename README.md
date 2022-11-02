@@ -1,6 +1,8 @@
 # Flask file generator
 
->## How to install
+## This script generate file structure ideal to start project
+
+>### How to install
 >>Adding script to PATH.
 >* Open your .bashrc or .zshrc 
 >* `export PATH="$PATH:directory/of/scrip"`
@@ -8,7 +10,7 @@
 
 #
 
-## Run script
+### Run script
 * $ ~  `make_app`
     * name of project
  
