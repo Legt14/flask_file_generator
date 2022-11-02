@@ -11,8 +11,8 @@ This script generate file structure ideal to start project in flask
 #
 
 ### Run script
-*`make_app`
-   * `Project name: 'example'`
+* `make_app`
+   * `Project name: Example_name`
  
 
 
