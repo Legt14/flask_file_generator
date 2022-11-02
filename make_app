@@ -6,23 +6,27 @@ class CreateApp:
     def __init__(self):
         self.project_name = input('\033[1;32;40mProject name: ')
         self.main_path = '{}'.format(self.project_name)
-        self.app_path = '{}/app/'.format(self.main_path)
-        self.template_path = '{}template/'.format(self.app_path)
-        self.static_path = '{}static/'.format(self.app_path)
-        
+        self.app_path = '{}/app'.format(self.main_path)
+        self.test_path = '{}/tests'.format(self.main_path)
+        self.template_path = '{}/template'.format(self.app_path)
+        self.static_path = '{}/static'.format(self.app_path)
+
 
     def create_main_dir(self):
-        makedirs(
-            '{}/app/'.format(self.project_name))
+        makedirs('{}/app/'.format(self.project_name))
+        mkdir('{}/tests/'.format(self.project_name))
         return 'Project name: {} is create'.format(self.project_name)
 
 
     def file_creator(self):
-        file_main = open('{}/app.py'.format(self.project_name), 'x')
-        file_main.close()
+        file_app = open('{}/app.py'.format(self.project_name), 'x')
+        file_app.close()
 
-        file_main = open('{}/__init__.py'.format(self.project_name), 'x')
-        file_main.close()
+        file_init = open('{}/__init__.py'.format(self.project_name), 'x')
+        file_init.close()
+        
+        file_test = open('{}/test.py'.format(self.test_path), 'x')
+        file_test.close()
 
         file_forms = open('{}/forms.py'.format(self.app_path), 'x')
         file_forms.close()
@@ -30,11 +34,11 @@ class CreateApp:
         file_models = open('{}/models.py'.format(self.app_path), 'x')
         file_models.close()
 
-        file_models = open('{}index.html'.format(self.template_path), 'x')
-        file_models.close()
+        file_template = open('{}/index.html'.format(self.template_path), 'x')
+        file_template.close()
 
-        file_models = open('{}css/style.css'.format(self.static_path), 'x')
-        file_models.close()
+        file_css = open('{}/css/style.css'.format(self.static_path), 'x')
+        file_css.close()
 
         return 'Main file is created'
 
@@ -70,4 +74,3 @@ class CreateApp:
 if __name__ == '__main__':
     app = CreateApp()
     print(app.create())
-    
