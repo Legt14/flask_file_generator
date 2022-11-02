@@ -19,26 +19,15 @@ class CreateApp:
 
 
     def file_creator(self):
-        file_app = open('{}/app.py'.format(self.project_name), 'x')
-        file_app.close()
-
-        file_init = open('{}/__init__.py'.format(self.project_name), 'x')
-        file_init.close()
-        
-        file_test = open('{}/test.py'.format(self.test_path), 'x')
-        file_test.close()
-
-        file_forms = open('{}/forms.py'.format(self.app_path), 'x')
-        file_forms.close()
-
-        file_models = open('{}/models.py'.format(self.app_path), 'x')
-        file_models.close()
-
-        file_template = open('{}/index.html'.format(self.template_path), 'x')
-        file_template.close()
-
-        file_css = open('{}/css/style.css'.format(self.static_path), 'x')
-        file_css.close()
+        with open('{}/app.py'.format(self.project_name), 'x') as app,\
+             open('{}/__init__.py'.format(self.project_name), 'x') as app,\
+             open('{}/test.py'.format(self.test_path), 'x') as app,\
+             open('{}/forms.py'.format(self.app_path), 'x') as app,\
+             open('{}/models.py'.format(self.app_path), 'x') as app,\
+             open('{}/index.html'.format(self.template_path), 'x') as app,\
+             open('{}/css/style.css'.format(self.static_path), 'x') as app:
+            app.close()
+            
 
         return 'Main file is created'
 
