@@ -1,6 +1,6 @@
 # Flask file generator
 
-## This script generate file structure ideal to start project
+This script generate file structure ideal to start project
 
 >### How to install
 >>Adding script to PATH.
